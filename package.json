@@ -1,0 +1,19 @@
+{
+  "name": "wtd",
+  "version": "1.0.0",
+  "description": "what to do today.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kasuyan/wtd.git"
+  },
+  "author": "kasuyan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kasuyan/wtd/issues"
+  },
+  "homepage": "https://github.com/kasuyan/wtd#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
