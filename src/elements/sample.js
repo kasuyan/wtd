@@ -1,3 +1,4 @@
+// ligth dom
 class SampleElement extends HTMLElement {
   constructor() {
     super();

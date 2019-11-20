@@ -1,3 +1,4 @@
+// shadow dom
 class SampleShadowDOM extends HTMLElement {
   constructor() {
     super();

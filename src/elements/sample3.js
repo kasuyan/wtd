@@ -1,3 +1,4 @@
+// shadow dom and color setting
 class SampleShadowDOM2 extends HTMLElement {
   constructor() {
     super();

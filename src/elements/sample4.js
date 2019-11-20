@@ -1,12 +1,12 @@
+// shadow dom and
 class SampleShadowDOM3 extends HTMLElement {
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.innerHTML = this._tmp();
-  }
 
-  get color() {
-    return this.getAttribute("color");
+    const button = shadowRoot.querySelector(".toggle-button");
+    button.addEventListener("click", this.onHidden);
   }
 
   static get observedAttributes() {
@@ -14,9 +14,16 @@ class SampleShadowDOM3 extends HTMLElement {
     return ["color"];
   }
 
+  get color() {
+    console.log("get color");
+    return this.getAttribute("color");
+  }
+
   set color(val) {
+    console.log("set color");
     this.setAttribute("color", val);
     console.log("set color", this.color);
+    this.shadowRoot.innerHTML = this._tmp();
   }
 
   connectedCallback() {
@@ -33,14 +40,24 @@ class SampleShadowDOM3 extends HTMLElement {
     );
   }
 
+  onHidden = e => {
+    console.log("onHidden");
+    if (this.color === "#fff") {
+      this.color = "#0f0";
+    } else {
+      this.color = "#fff";
+    }
+  };
+
   _tmp() {
+    console.log(this.color);
     return `
-    <style>
-      ${console.log("in tmp", this.color)}
-      p { color:${this.color}; }
-    </style>
-    
-    <p>Shadow DOM</p>`;
+      <style>
+        p { color: ${this.color}; }
+      </style>
+      <p>Shadow DOM. this color is ${this.color}</p>
+      <button class="toggle-button">hidden Shadow DOM</button>
+    `;
   }
 }
 
